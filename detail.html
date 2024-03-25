@@ -1,0 +1,87 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>   
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.dataTables.css" />
+    <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin:24px 0;">
+        <a class="navbar-brand" href="index.html">HRIS System</a>
+        
+        <div class="collapse navbar-collapse my-2 my-lg-0" id="navb">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="structure.html">Organization Chart</a>
+            </li>            
+          </ul>
+         
+        </div>
+      </nav>
+      <div class="card my-3">
+      
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-8"><a href="index.html">< Back</a></div>
+                <div class="col-sm-4">Last Edited on <span id="last_updated"></span> </div>                
+              </div>
+              <div class="row profile">
+                <div class="col-sm-1">
+                    <span id="thumbnail"></span>
+                </div>
+                <div class="col-sm-6">
+                    <h5 id="fullname"></h5>
+                    <h6 id="position"></h6>
+                    <h6>Line Manager: <span id="manager" class="manager"></span></h6>
+                </div>                
+            </div>
+      </div>   
+    </div>
+    <div class="card my-3">
+        <div class="card-header">
+            <button class="btn btn-primary">Personal</button>
+            <button class="btn btn-primary">Employment</button>            
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <h5 class="col-md-6">Personal Information</h5>             
+            <button type="button" class="btn btn-sm" id="btnEdit">
+              <i class="fas fa-edit"></i>
+            </button>
+          
+          </div>
+            <h6 class="sub">Personal Data</h6>
+            <div class="row">
+                <div class="col-sm-3">Name <br> <span id="name"></span></div>
+                <div class="col-sm-6">Address <br> <span id="address"></span></div>                
+            </div>
+            <h6 class="sub">Contact </h6>
+            <div class="row">                
+                <div class="col-sm-3">Phone Number <br> <span id="phone"></span></div>
+                <div class="col-sm-6">Email <br> <span id="email"></span> </div>                
+            </div>
+            <h6 class="sub">Employment </h6>
+            <div class="row">                
+                <div class="col-sm-3">Join Date <br> <span id="join_date"></span></div>
+                <div class="col-sm-6">Employment Type <br> <span id="employment_type"></span> </div>                
+            </div>
+
+        </div>       
+    </div>
+    <script src="config.js"></script> 
+    <script src="script.js"></script> 
+    <script>
+        $(document).ready( function () {
+          loadData()
+          $('#btnEdit').click(function(){ editData(); });
+        });
+    </script>
+    
+  </body>
+</html>

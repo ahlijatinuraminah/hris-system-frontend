@@ -1,0 +1,103 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>   
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.dataTables.css" />
+    <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin:24px 0;">
+        <a class="navbar-brand" href="index.html">HRIS System</a>
+        
+        <div class="collapse navbar-collapse my-2 my-lg-0" id="navb">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="structure.html">Organization Chart</a>
+            </li>            
+          </ul>
+         
+        </div>
+      </nav>
+      <div class="card my-3">       
+        <div class="card-body p-0">
+          <button class="btn btn-info" id="btnAdd">
+            <i class="fas fa-address-book"></i>Add New 
+          </button>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-8">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <select class="form-control" id="filter">
+                  <option value="0">Employee Name</option>
+                  <option value="1">Position</option>
+                  <option value="2">Manager</option>                  
+                </select>
+              </div>
+              <input type="search" class="form-control col-md-5" placeholder="Search" id="search">
+              <button class="btn btn-default" id="btnSearch">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>            
+          </div>
+          <div class="col-md-4">
+            <div class="input-group mb-3">
+                <select class="form-control" id="emptype">
+                  <option value="">Employment Type</option>
+                  <option value="Contract">Contract Employee</option>
+                  <option value="Permanent">Permanent Employee</option>                  
+                </select>
+              <button class="btn btn-default" id="btnFilter">
+                <i class="fas fa-list"></i>
+              </button>
+              
+            </div>        
+
+          </div>
+        </div>
+          <div class="table-responsive">
+            <table id="emptable" class="table table-striped m-0">
+              <thead>
+                <tr>
+                  <th>Employee Name</th>
+                  <th>Position</th>
+                  <th>Manager </th>
+                  <th>Employment Type</th>
+                  <th>Last Updated</th>                                    
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="config.js"></script> 
+    <script src="script.js"></script> 
+    <script>
+      $(document).ready( function () {
+        initializeTable();
+        $('#btnAdd').click(function(){ addData(); });
+        $("#search").keyup(function(event) {
+          if (event.keyCode === 13) {
+              $("#btnSearch").click();
+          }
+        });
+        $('#btnSearch').click(function(){ searchData(); });
+        $('#btnFilter').click(function(){ filterData(); });
+
+        $('.dt-length').hide();
+        $('.dt-search').hide();
+      });
+      
+    </script>
+  </body>
+</html>

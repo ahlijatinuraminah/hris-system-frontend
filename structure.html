@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>   
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.dataTables.css" />
+    <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin:24px 0;">
+        <a class="navbar-brand" href="index.html">HRIS System</a>
+        
+        <div class="collapse navbar-collapse my-2 my-lg-0" id="navb">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="structure.html">Organization Chart</a>
+            </li>            
+          </ul>
+         
+        </div>
+      </nav>
+        <div id="chart">  
+        </div> 
+     </div>
+     <script src="config.js"></script> 
+    <script src="script.js"></script> 
+    <script>
+         google.load('visualization', '1.0', {'packages':['orgchart'], 'callback': drawEmpChart});
+         drawEmpChart()
+    </script>
+  </body>
+</html>

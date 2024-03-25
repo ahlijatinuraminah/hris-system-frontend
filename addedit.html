@@ -1,0 +1,88 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>       
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin:24px 0;">
+        <a class="navbar-brand" href="index.html">HRIS System</a>
+        
+        <div class="collapse navbar-collapse my-2 my-lg-0" id="navb">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="structure.html">Organization Chart</a>
+            </li>            
+          </ul>
+         
+        </div>
+      </nav>
+      
+      <div class="card-body">
+        <h5>Personal Information</h5>           
+        <form action="">
+          <h6 class="sub">Personal Data</h6>
+            <div class="row">
+                <div class="col-sm-3">Employee Code <br> <input class="form-control" type="text" name="emp_code" id="emp_code"/></div>
+                <div class="col-sm-6">Name <br> <input class="form-control" type="text" name="name" id="name"/></div>                
+            </div>
+            <div class="row">
+              <div class="col-sm-9">Address <br> <input class="form-control" type="text" name="address" id="address"/></div>                
+          </div>
+            <h6 class="sub">Contact </h6>
+            <div class="row">                
+                <div class="col-sm-3">Phone Number <br> <input class="form-control" type="text" name="phone" id="phone"/></div>
+                <div class="col-sm-6">Email <br> <input class="form-control" type="text" name="email" id="email"/></div>                
+            </div>
+            <h6 class="sub">Employment </h6>
+            <div class="row">                
+                <div class="col-sm-3">Join Date <br> <input class="form-control" type="date" name="join_date" id="join_date"/></div>
+                <div class="col-sm-6">Employment Type <br> 
+                  <select class="form-control" id="employment_type" name="employment_type"> 
+                    <option value="">Select Employment Type</option>
+                    <option value="Permanent">Permanent</option>
+                    <option value="Contract">Contract</option>
+                  </select>
+                </div>                
+            </div>
+
+            <h6 class="sub">Position </h6>
+            <div class="row">                
+                <div class="col-sm-3">Position <br> 
+                  <select class="form-control" id="job_position" name="job_position"> 
+                  </select>
+                </div>
+                <div class="col-sm-6">Manager <br> 
+                  <select class="form-control" id="manager" name="manager"> 
+                  </select>
+                </div>                
+            </div>
+        </form>
+        
+        <button class="btn btn-success" id="btnSave"><i class="fas fa-file"></i></i>Save </button>        
+        <button class="btn btn-danger" id="btnCancel"><i class="fas fa-undo"></i>Cancel</button>        
+      </div>  
+        
+    </div>
+    <script src="config.js"></script> 
+    <script src="script.js"></script> 
+    <script>
+        $(document).ready( function () {        
+          bindFormData()
+          GetAllManagers()
+          GetAllPositions()
+          $("#btnSave").click(function(){
+            save()
+          });
+          $("#btnCancel").click(function(){
+            window.location = "index.html"
+          });
+        });
+    </script>
+    
+  </body>
+</html>
